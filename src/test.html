@@ -28,14 +28,12 @@
       });
 
       suite('Day Three of Advent of Code', () => {
-        var input = `
-vJrwpWtwJgWrhcsFMMfFFhFp
+        var input = `vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
 PmmdzqPrVvPwwTWBwg
 wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
-CrZsJsPPZsGzwwsLwLmpwMDw        
-        `;
+CrZsJsPPZsGzwwsLwLmpwMDw`;
 
         test('the sum of priorities from the input will return 157', () => {
             chai.assert.equal(157, getRucksackSumOfPriorities(input));
@@ -45,17 +43,24 @@ CrZsJsPPZsGzwwsLwLmpwMDw
           for (i = 0 ; i <= 25 ; i++ ) {
             var chr = String.fromCharCode(97 + i);
             chai.assert.equal(i+1, getRucksackSumOfPriorities(chr+chr));
+            chai.assert.equal(i+1, getCurrentCode(chr));
           }
 
         });
 
         test('Every kind of uppercase item', () => {
-          for (i = 1 ; i <= 26 ; i++ ) {
+          for (i = 0 ; i <= 25 ; i++ ) {
             var chr = String.fromCharCode(65 + i);
-            chai.assert.equal(26+i, getRucksackSumOfPriorities(chr+chr));
+            chai.assert.equal(27+i, getRucksackSumOfPriorities(chr+chr));
+            chai.assert.equal(27+i, getCurrentCode(chr));
           }
-
         });
+
+        test('the sum of badge\'s priorities from the input will return 70', () => {
+            chai.assert.equal(70, getBadgeSum(input));
+        });
+
+
       });
 
       mocha.run();
