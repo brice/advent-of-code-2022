@@ -6,13 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>This is a simple program runner</title>
-
+  <script src="js/aoc.js"></script>
 </head>
 
 <body>
     <div id="root">
+      <form>
+        <textarea id="puzzleInput">
+
+        </textarea>
+        <div id="result"></div>
+        <br/>
+        <input type="button" onclick="compute();" value="Compute"/>
+      </form>
 
     </div>
+    <script type="text/javascript">
+      function compute() {
+        console.log(getRucksackSumOfPriorities(document.getElementById('puzzleInput').value));
+        return false;
+      }
+    </script>
 </body>
 
 </html>
