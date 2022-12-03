@@ -40,6 +40,22 @@ CrZsJsPPZsGzwwsLwLmpwMDw
         test('the sum of priorities from the input will return 157', () => {
             chai.assert.equal(157, getRucksackSumOfPriorities(input));
         });
+
+        test('Every kind of lowercase item', () => {
+          for (i = 0 ; i <= 25 ; i++ ) {
+            var chr = String.fromCharCode(97 + i);
+            chai.assert.equal(i+1, getRucksackSumOfPriorities(chr+chr));
+          }
+
+        });
+
+        test('Every kind of uppercase item', () => {
+          for (i = 1 ; i <= 26 ; i++ ) {
+            var chr = String.fromCharCode(65 + i);
+            chai.assert.equal(26+i, getRucksackSumOfPriorities(chr+chr));
+          }
+
+        });
       });
 
       mocha.run();
