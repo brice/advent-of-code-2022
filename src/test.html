@@ -28,6 +28,18 @@
       });
 
       suite('Day Three of Advent of Code', () => {
+        var input = `
+vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw        
+        `;
+
+        test('the sum of priorities from the input will return 157', () => {
+            chai.assert.equal(157, getRucksackSumOfPriorities(input));
+        });
       });
 
       mocha.run();

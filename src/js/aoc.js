@@ -23,3 +23,6 @@
 /**
  * Day 3
  */
+function getRucksackSumOfPriorities(data) {
+    return 0;
+}
