@@ -110,7 +110,8 @@ function getCurrentCode(item) {
  */
 
 function findNumberOfOverlap(input) {
-    return 0;
+    var count = 0;
+    return count;
 }
 
 function fillTheBlank(start, end) {
