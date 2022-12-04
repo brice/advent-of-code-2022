@@ -94,3 +94,40 @@ function getCurrentCode(item) {
 
     return currentCode;
 }
+
+/**
+ * --- Day 4: Camp Cleanup ---
+ */
+
+function findNumberOfOverlap(input) {
+    var lines = input.split("\n");
+    var count = 0;
+    lines.forEach(line => {
+        line = line.trim();
+        if (line == '') {
+            return;
+        }
+
+        var firstAssignment = fillTheBlank(line.split(',')[0].split('-')[0], line.split(',')[0].split('-')[1]);
+        var secondAssignment = fillTheBlank(line.split(',')[1].split('-')[0], line.split(',')[1].split('-')[1]);
+        console.log(firstAssignment+' '+secondAssignment);
+        if (secondAssignment.indexOf(firstAssignment) != -1 ||firstAssignment.indexOf(secondAssignment) != -1) {
+            count++;
+        }
+        console.log(count);
+    });
+    return count;
+}
+
+function fillTheBlank(start, end) {
+    result = '-';
+    
+    if (end == undefined) {
+        return '-'+start.toString()+'-';
+    }
+    for (i = parseInt(start) ; i <= parseInt(end) ; i++) {
+        result += i.toString()+'-';
+        console.log(result);
+    }
+    return result;
+}
