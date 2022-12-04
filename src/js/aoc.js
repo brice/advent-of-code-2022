@@ -113,13 +113,32 @@ function findNumberOfOverlap(input) {
         if (secondAssignment.indexOf(firstAssignment) != -1 ||firstAssignment.indexOf(secondAssignment) != -1) {
             count++;
         }
-        console.log(count);
     });
     return count;
 }
 
 function findNumberOfFullOverlap(input) {
     var count = 0;
+    var lines = input.split("\n");
+    var count = 0;
+    lines.forEach(line => {
+        var expect = 0;
+        line = line.trim();
+        if (line == '') {
+            return;
+        }
+        var firstArray = getArrayInterval(line.split(',')[0].split('-')[0], line.split(',')[0].split('-')[1]);
+        var secondAssignment = fillTheBlank(line.split(',')[1].split('-')[0], line.split(',')[1].split('-')[1]);
+        firstArray.forEach(element => {
+            if (expect != 0) {
+                return;
+            }
+            if (secondAssignment.indexOf('-'+element+'-') != -1) {
+                expect = 1 ;
+            }
+        });
+        count += expect;
+    });
     return count;
 }
 
@@ -131,11 +150,17 @@ function fillTheBlank(start, end) {
     }
     for (i = parseInt(start) ; i <= parseInt(end) ; i++) {
         result += i.toString()+'-';
-        console.log(result);
     }
     return result;
 }
 
 function getArrayInterval(start, end) {
-    return [];
+    var result = [];
+    if (end == undefined) {
+        return [start];
+    }
+    for (i = parseInt(start) ; i <= parseInt(end) ; i++) {
+        result.push(i);
+    }
+    return result;
 }
