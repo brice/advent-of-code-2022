@@ -91,8 +91,8 @@ suite('Day Four of Advent of Code', () => {
         
 
         test('check if the array meet what we need', () => {
-            chai.assert.equal([1,2,3,4,5,6], getArrayInterval(1, 6));
-            chai.assert.equal([34,35,36], getArrayInterval(34,36));
-            chai.assert.equal([42], getArrayInterval(42));
+            chai.assert.deepEqual([1,2,3,4,5,6], getArrayInterval(1, 6));
+            chai.assert.deepEqual([34,35,36], getArrayInterval(34,36));
+            chai.assert.deepEqual([42], getArrayInterval(42));
         });
 });
