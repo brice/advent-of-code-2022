@@ -114,6 +114,15 @@ function findNumberOfOverlap(input) {
     return count;
 }
 
+function findNumberOfFullOverlap(input) {
+    var count = 0;
+    return count;
+}
+
 function fillTheBlank(start, end) {
     return '';
+}
+
+function getArrayInterval(start, end) {
+    return [];
 }

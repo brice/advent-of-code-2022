@@ -55,9 +55,18 @@ suite('Day Four of Advent of Code', () => {
             chai.assert.equal(2, findNumberOfOverlap(input));
         });
 
+        test('the total overlap counted will be 4 with the new system', () => {
+            chai.assert.equal(4, findNumberOfFullOverlap(input));
+        });
+
         test('ho no there\s an overlap', () => {
             chai.assert.equal(1, findNumberOfOverlap('1-2,1-8'));
             chai.assert.equal(1, findNumberOfOverlap('7-8,1-8'));
+        });
+
+        test('ho no there\s an overlap on the new system', () => {
+            chai.assert.equal(1, findNumberOfFullOverlap('1-2,2-8'));
+            chai.assert.equal(1, findNumberOfFullOverlap('7-8,8-9'));
         });
 
         test('yeah there\s no overlap', () => {
@@ -67,11 +76,23 @@ suite('Day Four of Advent of Code', () => {
             chai.assert.equal(0, findNumberOfOverlap('36,60-70'));
         });
 
+        test('yeah there\s no overlap on the new system', () => {
+            chai.assert.equal(0, findNumberOfFullOverlap('1-2,7-8'));
+            chai.assert.equal(0, findNumberOfFullOverlap('7-8,1-2'));
+            chai.assert.equal(0, findNumberOfFullOverlap('7-26,27-27'));
+            chai.assert.equal(0, findNumberOfFullOverlap('36,60-70'));
+        });
+
         test('check if blank are correctly filled', () => {
             chai.assert.equal('-1-2-3-4-5-6-', fillTheBlank(1, 6));
             chai.assert.equal('-34-35-36-', fillTheBlank(34,36));
             chai.assert.equal('-42-', fillTheBlank(42));
         });
         
-    
+
+        test('check if the array meet what we need', () => {
+            chai.assert.equal([1,2,3,4,5,6], getArrayInterval(1, 6));
+            chai.assert.equal([34,35,36], getArrayInterval(34,36));
+            chai.assert.equal([42], getArrayInterval(42));
+        });
 });
