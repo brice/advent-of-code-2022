@@ -16,52 +16,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.1.0/mocha.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
     <script src="js/aoc.js"></script>
+    <script src="js/test.js"></script>
 
     <script class="mocha-exec">
-      mocha.setup('tdd');
-
-      // 
-      suite('Day One of Advent of Code', () => {
-      });
-
-      suite('Day Two of Advent of Code', () => {
-      });
-
-      suite('Day Three of Advent of Code', () => {
-        var input = `vJrwpWtwJgWrhcsFMMfFFhFp
-jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-PmmdzqPrVvPwwTWBwg
-wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-ttgJtRGJQctTZtZT
-CrZsJsPPZsGzwwsLwLmpwMDw`;
-
-        test('the sum of priorities from the input will return 157', () => {
-            chai.assert.equal(157, getRucksackSumOfPriorities(input));
-        });
-
-        test('Every kind of lowercase item', () => {
-          for (i = 0 ; i <= 25 ; i++ ) {
-            var chr = String.fromCharCode(97 + i);
-            chai.assert.equal(i+1, getRucksackSumOfPriorities(chr+chr));
-            chai.assert.equal(i+1, getCurrentCode(chr));
-          }
-
-        });
-
-        test('Every kind of uppercase item', () => {
-          for (i = 0 ; i <= 25 ; i++ ) {
-            var chr = String.fromCharCode(65 + i);
-            chai.assert.equal(27+i, getRucksackSumOfPriorities(chr+chr));
-            chai.assert.equal(27+i, getCurrentCode(chr));
-          }
-        });
-
-        test('the sum of badge\'s priorities from the input will return 70', () => {
-            chai.assert.equal(70, getBadgeSum(input));
-        });
-
-
-      });
 
       mocha.run();
     </script>
