@@ -107,10 +107,9 @@ function findNumberOfOverlap(input) {
         if (line == '') {
             return;
         }
-
         var firstAssignment = fillTheBlank(line.split(',')[0].split('-')[0], line.split(',')[0].split('-')[1]);
         var secondAssignment = fillTheBlank(line.split(',')[1].split('-')[0], line.split(',')[1].split('-')[1]);
-        console.log(firstAssignment+' '+secondAssignment);
+
         if (secondAssignment.indexOf(firstAssignment) != -1 ||firstAssignment.indexOf(secondAssignment) != -1) {
             count++;
         }
