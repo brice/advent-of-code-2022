@@ -64,6 +64,11 @@ suite('Day Four of Advent of Code', () => {
             chai.assert.equal(0, findNumberOfOverlap('1-2,7-8'));
             chai.assert.equal(0, findNumberOfOverlap('7-8,1-2'));
         });
+
+        test('check if blank are correctly filled', () => {
+            chai.assert.equal('123456', fillTheBlank(1, 6));
+            chai.assert.equal('343536', fillTheBlank(34,36));
+        });
         
     
 });

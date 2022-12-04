@@ -112,3 +112,7 @@ function getCurrentCode(item) {
 function findNumberOfOverlap(input) {
     return 0;
 }
+
+function fillTheBlank(start, end) {
+    return '';
+}
