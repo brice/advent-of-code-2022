@@ -1,9 +1,67 @@
 mocha.setup('tdd');
 
-suite('Day One of Advent of Code', () => {
+suite('Day one of Advent of Code', () => {
+    var contentTestInput = `
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000`;
+
+    test('The elf with the most calories carry 24000 calories', () => {
+        chai.expect(getSumOfTopElves(contentTestInput, 1)).to.eql(24000);
+    });
+
+    test('The sum of the Calories carried by the top three elves is 45000', () => {
+        chai.expect(getSumOfTopElves(contentTestInput, 3)).to.eql(45000);
+    });
 });
 
-suite('Day Two of Advent of Code', () => {
+suite('Day two of Advent of Code', () => {
+    var strategy = `A Y
+B X
+C Z
+`;
+
+    test('the rock scissor paper score based on the strategy will return 15', () => {
+        chai.assert.equal(12, getScore(strategy));
+    });
+
+    test('the detailed score should work', () => {
+        chai.assert.equal(7, getScore('C Z'));
+        chai.assert.equal(4, getScore('A Y'));
+        chai.assert.equal(1, getScore('B X'));
+        chai.assert.equal(3, getScore('A X'));
+    });
+
+    test('the rock is valued to 1', () => {
+        chai.assert.equal(1, getItemValue('A'));
+    });
+    test('the paper is valued to 2', () => {
+        chai.assert.equal(2, getItemValue('B'));
+    });
+    test('the scissor is valued to 3', () => {
+        chai.assert.equal(3, getItemValue('C'));
+    });
+
+    test('ho no, i lose', () => {
+        chai.assert.equal(0, getResultScore('X'));
+    });
+    test('this was close', () => {
+        chai.assert.equal(3, getResultScore('Y'));
+    });
+    test('yeah I win', () => {
+        chai.assert.equal(6, getResultScore('Z'));
+    });
 });
 
 suite('Day Three of Advent of Code', () => {

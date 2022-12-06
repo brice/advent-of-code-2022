@@ -15,10 +15,31 @@
 /**
  * Day 1
  */
+function computeResult(contents) {
+    return getSumOfTopElves(contents, 1);
+}
+
+function getSumOfTopElves(contents, n) {
+    var globalResult = 0;
+    return globalResult;
+}
 
 /**
  * Day 2
  */
+function getScore(strategy)} {
+    var score = 0;
+    return score;
+}
+
+function getWeaponValue(score, opponent) {
+    return 1;
+}
+
+function getItemValue(item) {
+    var value = 0;
+    return value;
+}
 
 /**
  * Day 3
