@@ -147,3 +147,11 @@ function fillTheBlank(start, end) {
 function getArrayInterval(start, end) {
     return [];
 }
+
+/**
+ * --- Day 8: Get Visible trees ---
+ */
+function getVisibleTrees(forest) {
+    visibleTrees = 0;
+    return visibleTrees
+};
