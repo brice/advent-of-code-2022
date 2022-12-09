@@ -155,3 +155,11 @@ function getVisibleTrees(forest) {
     visibleTrees = 0;
     return visibleTrees
 };
+
+/**
+ * --- Day 9: Get tail position ---
+ */
+function getNumberTailPositions() {
+    var count = 0;
+    return count;
+}
