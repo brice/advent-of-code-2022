@@ -47,11 +47,6 @@ function getItemValue(item) {
 function getRucksackSumOfPriorities(data) {
     var lines = data.split("\n");
     var sum = 0;
-    var codeA = 'A'.charCodeAt(0);
-    var codeZ = 'Z'.charCodeAt(0);
-
-    var codea = 'a'.charCodeAt(0);
-    var codez = 'z'.charCodeAt(0);
 
     lines.forEach(rucksack => {
         var currentCode = 0;
@@ -69,12 +64,7 @@ function getRucksackSumOfPriorities(data) {
                 return;
             }
             if (compartment2.includes(item)) {
-                var charcode = item.charCodeAt(0);
-                if (charcode >= codeA && charcode <= codeZ) {
-                    currentCode = 26 + charcode - codeA + 1;
-                } else if (charcode >= codea && charcode <= codez) {
-                    currentCode = charcode - codea + 1;
-                }
+                currentCode = getCurrentCode(item);
             }
         })
         sum += currentCode;
@@ -131,21 +121,69 @@ function getCurrentCode(item) {
  */
 
 function findNumberOfOverlap(input) {
+    var lines = input.split("\n");
     var count = 0;
+    lines.forEach(line => {
+        line = line.trim();
+        if (line == '') {
+            return;
+        }
+        var firstAssignment = fillTheBlank(line.split(',')[0].split('-')[0], line.split(',')[0].split('-')[1]);
+        var secondAssignment = fillTheBlank(line.split(',')[1].split('-')[0], line.split(',')[1].split('-')[1]);
+
+        if (secondAssignment.indexOf(firstAssignment) != -1 ||firstAssignment.indexOf(secondAssignment) != -1) {
+            count++;
+        }
+    });
     return count;
 }
 
 function findNumberOfFullOverlap(input) {
     var count = 0;
+    var lines = input.split("\n");
+    var count = 0;
+    lines.forEach(line => {
+        var expect = 0;
+        line = line.trim();
+        if (line == '') {
+            return;
+        }
+        var firstArray = getArrayInterval(line.split(',')[0].split('-')[0], line.split(',')[0].split('-')[1]);
+        var secondAssignment = fillTheBlank(line.split(',')[1].split('-')[0], line.split(',')[1].split('-')[1]);
+        firstArray.forEach(element => {
+            if (expect != 0) {
+                return;
+            }
+            if (secondAssignment.indexOf('-'+element+'-') != -1) {
+                expect = 1 ;
+            }
+        });
+        count += expect;
+    });
     return count;
 }
 
 function fillTheBlank(start, end) {
-    return '';
+    result = '-';
+    
+    if (end == undefined) {
+        return '-'+start.toString()+'-';
+    }
+    for (i = parseInt(start) ; i <= parseInt(end) ; i++) {
+        result += i.toString()+'-';
+    }
+    return result;
 }
 
 function getArrayInterval(start, end) {
-    return [];
+    var result = [];
+    if (end == undefined) {
+        return [start];
+    }
+    for (i = parseInt(start) ; i <= parseInt(end) ; i++) {
+        result.push(i);
+    }
+    return result;
 }
 
 /**

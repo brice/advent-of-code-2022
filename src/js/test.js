@@ -62,6 +62,8 @@ C Z
     test('yeah I win', () => {
         chai.assert.equal(6, getResultScore('Z'));
     });
+
+suite('Day Two of Advent of Code', () => {
 });
 
 suite('Day Three of Advent of Code', () => {
@@ -96,8 +98,6 @@ CrZsJsPPZsGzwwsLwLmpwMDw`;
     test('the sum of badge\'s priorities from the input will return 70', () => {
         chai.assert.equal(70, getBadgeSum(input));
     });
-
-
 });
 
  
@@ -108,7 +108,7 @@ suite('Day Four of Advent of Code', () => {
     2-8,3-7
     6-6,4-6
     2-6,4-8`;
-    
+
         test('the total overlap counted will be 2', () => {
             chai.assert.equal(2, findNumberOfOverlap(input));
         });
@@ -146,11 +146,10 @@ suite('Day Four of Advent of Code', () => {
             chai.assert.equal('-34-35-36-', fillTheBlank(34,36));
             chai.assert.equal('-42-', fillTheBlank(42));
         });
-        
 
         test('check if the array meet what we need', () => {
-            chai.assert.deepEqual([1,2,3,4,5,6], getArrayInterval(1, 6));
-            chai.assert.deepEqual([34,35,36], getArrayInterval(34,36));
-            chai.assert.deepEqual([42], getArrayInterval(42));
+            chai.assert.equal([1,2,3,4,5,6], getArrayInterval(1, 6));
+            chai.assert.equal([34,35,36], getArrayInterval(34,36));
+            chai.assert.equal([42], getArrayInterval(42));
         });
 });
