@@ -8,8 +8,8 @@ This year i decided to give it a shot. I'm a QA engineer, not a developer, so I 
 
 Here is some goal i want to achieve : 
 
-* [ ] Create user stories for each puzzle
-* [ ] Use TDD in order to develop it
-* [ ] Use continuous integration 
+* [X] Create user stories for each puzzle. I did it for every story I tried to pass
+* [X] Use TDD in order to develop it. That work almost every time.
+* [ ] Use continuous integration. Need improvement, for instance we need to resolve #16 before that  
 * [ ] Experiment E2E test for more
-* [ ] Enjoy!
+* [X] Enjoy!
