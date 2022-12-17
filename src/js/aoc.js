@@ -178,6 +178,14 @@ function getArrayInterval(start, end) {
     return result;
 }
 
+
+/**
+ * --- Day 7 : Directory size ---
+ */
+function directorySize(fileList, sizeLowerThan = 0) {
+    return 0;
+}
+
 /**
  * --- Day 8: Get Visible trees ---
  */
