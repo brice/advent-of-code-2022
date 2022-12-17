@@ -38,10 +38,9 @@ CrZsJsPPZsGzwwsLwLmpwMDw`;
     test('the sum of badge\'s priorities from the input will return 70', () => {
         chai.assert.equal(70, getBadgeSum(input));
     });
-
 });
 
- 
+
 suite('Day Four of Advent of Code', () => {
     var input = `2-4,6-8
     2-3,4-5
