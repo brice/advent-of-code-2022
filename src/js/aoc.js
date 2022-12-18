@@ -184,31 +184,42 @@ function getArrayInterval(start, end) {
  */
 function directorySize(fileList, sizeLowerThan = 0) {
     var result = 0;
-    var arbo = [];
+    var fullDirectorySize = getArborescence(fileList);
+
+    if (sizeLowerThan == 0) {
+        return fullDirectorySize['/'];
+    }
+    Object.values(fullDirectorySize).forEach(element => {
+        if(sizeLowerThan >= element) {
+            result += element;
+        }
+    });
+    return result;
+}
+
+function getArborescence(fileList) {
     var directorySize = [];
+    var arbo = [];
     fileList.split("\n").forEach(line => {
-        if (line == "ls")  {
+        if (line == "ls") {
             return;
         }
 
         var changeDir = line.match('cd (.*)');
         var isFile = line.match('^([0-9]*) (.*)');
-        var isDir = line.match('^dir (.*)');
         if (changeDir != null) {
             // We need to change dir
             if (changeDir[1] == '..') {
                 previousIndice = arbo.join('-');
                 arbo.pop();
-                if( directorySize[arbo.join('-')] == undefined) {
+                if (directorySize[arbo.join('-')] == undefined) {
                     directorySize[arbo.join('-')] = 0;
                 }
                 directorySize[arbo.join('-')] += directorySize[previousIndice];
-                console.log(previousIndice +' ' + directorySize[previousIndice]);
+                console.log(previousIndice + ' ' + directorySize[previousIndice]);
             } else {
                 count = arbo.push(changeDir[1]);
             }
-            console.log(arbo.join('\\'));
-
         }
         if (isFile != null) {
             size = parseInt(isFile[1]);
@@ -220,18 +231,17 @@ function directorySize(fileList, sizeLowerThan = 0) {
     while (arbo.length != 0) {
         previousIndice = arbo.join('-');
         arbo.pop();
+        if (directorySize[arbo.join('-')] == undefined) {
+            directorySize[arbo.join('-')] = 0;
+        }
         directorySize[arbo.join('-')] += directorySize[previousIndice];
     }
-    console.log(directorySize);
+    return directorySize;
+}
 
-    if (sizeLowerThan == 0) {
-        return directorySize['/'];
-    }
-    Object.values(directorySize).forEach(element => {
-        if(sizeLowerThan >= element) {
-            result += element;
-        }
-    });
+function getSizeOfDirectoryToDelete(testData) {
+    var result = 0;
+
     return result;
 }
 
