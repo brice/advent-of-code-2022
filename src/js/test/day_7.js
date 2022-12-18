@@ -1,6 +1,6 @@
 mocha.setup('tdd');
 
-suite('Day seven of Advent of Code', () => {
+suite('Day Seven of Advent of Code', () => {
 
     const testData = `$ cd /
 $ ls

@@ -183,7 +183,56 @@ function getArrayInterval(start, end) {
  * --- Day 7 : Directory size ---
  */
 function directorySize(fileList, sizeLowerThan = 0) {
-    return 0;
+    var result = 0;
+    var arbo = [];
+    var directorySize = [];
+    fileList.split("\n").forEach(line => {
+        if (line == "ls")  {
+            return;
+        }
+
+        var changeDir = line.match('cd (.*)');
+        var isFile = line.match('^([0-9]*) (.*)');
+        var isDir = line.match('^dir (.*)');
+        if (changeDir != null) {
+            // We need to change dir
+            if (changeDir[1] == '..') {
+                previousIndice = arbo.join('-');
+                arbo.pop();
+                if( directorySize[arbo.join('-')] == undefined) {
+                    directorySize[arbo.join('-')] = 0;
+                }
+                directorySize[arbo.join('-')] += directorySize[previousIndice];
+                console.log(previousIndice +' ' + directorySize[previousIndice]);
+            } else {
+                count = arbo.push(changeDir[1]);
+            }
+            console.log(arbo.join('\\'));
+
+        }
+        if (isFile != null) {
+            size = parseInt(isFile[1]);
+            indice = arbo.join('-');
+            directorySize[indice] == undefined ? directorySize[indice] = size : directorySize[indice] += size;
+        }
+    });
+
+    while (arbo.length != 0) {
+        previousIndice = arbo.join('-');
+        arbo.pop();
+        directorySize[arbo.join('-')] += directorySize[previousIndice];
+    }
+    console.log(directorySize);
+
+    if (sizeLowerThan == 0) {
+        return directorySize['/'];
+    }
+    Object.values(directorySize).forEach(element => {
+        if(sizeLowerThan >= element) {
+            result += element;
+        }
+    });
+    return result;
 }
 
 /**
@@ -220,7 +269,6 @@ function getNumberTailPositions(motionList) {
         }
 
     });
-    console.log(resultArray);
     return resultArray.length;
 }
 

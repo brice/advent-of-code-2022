@@ -1,6 +1,6 @@
 mocha.setup('tdd');
 
-suite('Day nine of Advent of Code', () => {
+suite('Day Nine of Advent of Code', () => {
     const testData = `R 4
 U 4
 L 3
