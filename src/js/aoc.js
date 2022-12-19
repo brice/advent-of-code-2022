@@ -15,6 +15,14 @@
 /**
  * Day 1
  */
+function computeResult(contents) {
+    return getSumOfTopElves(contents, 1);
+}
+
+function getSumOfTopElves(contents, n) {
+    var globalResult = 0;
+    return globalResult;
+}
 
 /**
  * Day 2
@@ -178,7 +186,6 @@ function getArrayInterval(start, end) {
     return result;
 }
 
-
 /**
  * --- Day 7 : Directory size ---
  */
@@ -256,6 +263,7 @@ function getVisibleTrees(forest) {
 /**
  * --- Day 9: Get tail position ---
  */
+
 function getNumberTailPositions(motionList) {
     var position = [0, 0];
     var tailPositions = [];

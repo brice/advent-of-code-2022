@@ -37,6 +37,4 @@ R 2`;
             chai.assert.isFalse(iNeedToMoveTail(data[0], data[1]));
         });
     });
-
-
 });
