@@ -100,7 +100,7 @@ CrZsJsPPZsGzwwsLwLmpwMDw`;
     });
 });
 
- 
+
 suite('Day Four of Advent of Code', () => {
     var input = `2-4,6-8
     2-3,4-5
